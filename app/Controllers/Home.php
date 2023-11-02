@@ -16,5 +16,8 @@ class Home extends BaseController
     public function registerPenjual(): string
     {
         return view('register_penjual');
+
+    public function landingpage(){
+        return view('landingpage');
     }
 }
