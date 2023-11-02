@@ -8,4 +8,13 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
+    public function registerPembeli(): string
+    {
+        return view('register_pembeli');
+    }
+
+    public function registerPenjual(): string
+    {
+        return view('register_penjual');
+    }
 }
