@@ -11,6 +11,10 @@ class CustomerController extends BaseController
         
     }
 
+    public function landingpage(){
+        return view('customer/home/landing_page');
+    }
+
     public function sign_in()
     {
         return view('customer/auth/sign_in');
@@ -19,5 +23,10 @@ class CustomerController extends BaseController
     public function forgot_password()
     {
         return view('customer/auth/forgot_password');
+    }
+
+    public function registerPembeli(): string
+    {
+        return view('customer/auth/register_pembeli');
     }
 }

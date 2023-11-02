@@ -39,10 +39,10 @@
         </div>
         <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Sign In</a>
+                <a class="nav-link" href="<?php echo base_url('customer/signin')?>">Sign In</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Sign Up</a>
+                <a class="nav-link" href="<?php echo base_url('customer/signup')?>">Sign Up</a>
             </li>
         </ul>
     </div>

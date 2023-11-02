@@ -23,7 +23,7 @@
                 <div class="mb-7">
                     <h3 class="font-semibold text-2xl text-gray-800">Sign In </h3>
                     <p class="text-gray-400">Don'thave an account? 
-                    <a href="#" class="font-bold text-sm text-black hover:text-blue-700">Sign Up</a></p>
+                    <a href="<?php echo base_url('customer/signup')?>" class="font-bold text-sm text-black hover:text-blue-700">Sign Up</a></p>
                 </div>
                 <div class="space-y-6">
                     <div class="">

@@ -10,4 +10,9 @@ class SellerController extends BaseController
     {
         //
     }
+
+    public function registerPenjual(): string
+    {
+        return view('seller/auth/register_penjual');
+    }
 }

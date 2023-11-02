@@ -1,9 +1,18 @@
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 
 
-<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css')</style>
+<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');</style>
+    <title>Document</title>
+</head>
+<body>
+    
 
 <div class="min-w-screen min-h-screen bg-gradient-to-b from-teal-800 to-teal-400 flex items-center justify-center px-5 py-5">
     <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
@@ -14,7 +23,6 @@
             <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
                 <div class="text-center mb-10">
                     <h1 class="font-bold text-3xl text-gray-900">SIGN UP</h1>
-                  
                 </div>
                 <div>
                     <div class="flex -mx-3">
@@ -79,3 +87,6 @@
         </div>
     </div>
 </div>
+
+</body>
+</html>
