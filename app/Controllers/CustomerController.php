@@ -29,4 +29,8 @@ class CustomerController extends BaseController
     {
         return view('customer/auth/register_pembeli');
     }
+
+    public function homescreen(){
+        return view('customer/home/homescreen');
+    }
 }
