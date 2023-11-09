@@ -15,6 +15,7 @@ $routes->get('/', [CustomerController::class, 'landingpage']);
 $routes->get('/customer/signin', [CustomerController::class, 'sign_in']);
 $routes->get('/customer/signup', [CustomerController::class, 'registerPembeli']);
 $routes->get('/customer/forgotpass', [CustomerController::class, 'forgot_password']);
+$routes->get('/customer/profile', [CustomerController::class, 'profilePembeli']);
 
 // ? Seller
 // $routes->get('/seller', 'Seller\Home::index'); 
