@@ -17,7 +17,7 @@ class CustomerController extends BaseController
 
     public function sign_in()
     {
-        return view('customer/auth/sign_in');
+        return view('customer/auth/login_pembeli');
     }
 
     public function forgot_password()
@@ -28,5 +28,9 @@ class CustomerController extends BaseController
     public function registerPembeli(): string
     {
         return view('customer/auth/register_pembeli');
+    }
+
+    public function homescreen(){
+        return view('customer/home/dashboard');
     }
 }
