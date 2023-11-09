@@ -30,6 +30,11 @@ class CustomerController extends BaseController
         return view('customer/auth/register_pembeli');
     }
 
+    public function profilePembeli(): string
+    {
+        return view('customer/profile/profile_pembeli');
+    }
+  
     public function homescreen(){
         return view('customer/home/dashboard');
     }
