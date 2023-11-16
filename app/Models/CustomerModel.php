@@ -6,16 +6,16 @@ use CodeIgniter\Model;
 
 class CustomerModel extends Model
 {
-    protected $table            = 'customers';
+    protected $table            = 'akun';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['email', 'username', 'password', 'roles'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -37,4 +37,8 @@ class CustomerModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getcustomer(){
+        return $this->findAll();
+    }
 }

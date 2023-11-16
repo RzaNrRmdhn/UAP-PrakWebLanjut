@@ -31,4 +31,6 @@ $routes->get('/admin/list_admin', [AdminController::class, 'list_admin']);
 $routes->get('/admin/list_seller', [AdminController::class, 'list_seller']);
 $routes->get('/admin/list_customer', [AdminController::class, 'list_customer']);
 $routes->get('/admin/admin_profile', [AdminController::class, 'admin_profile']);
+$routes->get('/admin/create_admin', [AdminController::class, 'create_admin']);
+$routes->post('/admin/store', [AdminController::class, 'store']);
 
