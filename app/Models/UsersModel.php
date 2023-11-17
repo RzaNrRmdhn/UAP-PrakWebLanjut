@@ -4,18 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AdminModel extends Model
+class UsersModel extends Model
 {
-    protected $table            = 'akun';
+    protected $table            = 'users';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['email', 'username', 'password', 'roles'];
+    protected $allowedFields    = ['email', 'username'];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -37,13 +37,14 @@ class AdminModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    public function getadmin(){
-        return $this->findAll();
+    public function getUser($id = null)
+    {
+        if ($id != null) {
+            return $this->select('users.*')->find($id);
+        }
     }
-    public function saveadmin($data){
-        $this->insert($data);
+    public function updateUser($data, $id)
+    {
+        return $this->update($id, $data);
     }
 }
-
-
