@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
+    <title>Update Profile</title>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,7 +30,7 @@
               </h2>
               <p class="text-xs text-white text-center">Customer ThriftingWeb</p>
             </div>
-              <a href="" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-teal-700 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-teal-500 dark:hover:border-gray-800 pr-6">
+              <a href="/customer/profile" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-teal-700 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-teal-500 dark:hover:border-gray-800 pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -84,56 +84,69 @@
       </div>
       <!-- ./Sidebar -->
 
-      <!-- admin profile -->
-    <div class="h-full ml-14  mb-10 md:ml-64"> 
-    <div class="h-full bg-gray-200 p-8">
+      <!-- customer profile -->
+      <div class="h-full ml-14  mb-10 md:ml-64"> 
+      <div class="h-full bg-gray-200 p-8">
         <div class="bg-white rounded-lg shadow-xl pb-8">
             <div class="w-full h-[200px]">
                 <img class="w-full h-full rounded-tl-lg rounded-tr-lg bg-gradient-to-b from-teal-800 to-teal-400">
             </div>
-            <div class="flex flex-col items-center -mt-20">
-            <img src="<?= base_url('/assets/eunwoo.jpg') ?>" class="w-40 border-4 border-white rounded-full">
-                <div class="flex items-center space-x-2 mt-2">
-                    <p class="text-2xl">Eunwoo</p>
-                </div>
-                <p class="text-gray-700">My Profile</p>
+
+      <div class="flex flex-col justify-center items-center h-full">
+                <!-- <h1 class="text-3xl font-semibold mb-6">Profile Saya</h1> -->
+                <img class="w-20 h-20 rounded-full mb-4"
+                    src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg"
+                    alt="Profile Picture">
+                <form action="<?= base_url('/customer/update_profile/' . $user['id']) ?>" method="post" class="w-full max-w-md">
+                <input type="file" id="profile_picture" name="profile_picture" accept="image/*" class="mb-4">
+                    <div class="mb-4">
+                        <label for="first_name"
+                            class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
+                        <input type="text" id="first_name" name="username"
+                            class="w-full px-3 py-2 border rounded-md" value="<?= $user['username']?>" required >
+                    </div>
+
+                    <!-- <div class="mb-4">
+                        <label for="last_name"
+                            class="block text-gray-700 text-sm font-bold mb-2">Last Name:</label>
+                        <input type="text" id="last_name" name="last_name"
+                            class="w-full px-3 py-2 border rounded-md" required>
+                    </div> -->
+
+                    <div class="mb-4">
+                        <label for="email"
+                            class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full px-3 py-2 border rounded-md" value="<?= $user['email']?>" required>
+                    </div>
+
+                    <!-- <div class="mb-4">
+                        <label for="last_name"
+                            class="block text-gray-700 text-sm font-bold mb-2">Alamat:</label>
+                        <input type="text" id="last_name" name="last_name"
+                            class="w-full px-3 py-2 border rounded-md" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="last_name"
+                            class="block text-gray-700 text-sm font-bold mb-2">No Telepon:</label>
+                        <input type="tel" id="last_name" name="last_name"
+                            class="w-full px-3 py-2 border rounded-md" required>
+                    </div> -->
+
+                    <button type="submit"
+                        class="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-gradient-to-r from-teal-800 to-teal-400 focus:outline-none focus:shadow-outline-teal active:bg-teal-800">Simpan</button>
+                        <input type="hidden" name="_method" value="PUT">
+                      </form>
             </div>
-            <div class="flex flex flex-col items-center lg:items-end justify-center px-8 mt-2">
-                <div class="flex items-center space-x-2 mt-2">
-                    <a href="<?= base_url('/customer/update_profile/'.user_id()) ?>" type="button" class="flex items-center bg-teal-500 hover:bg-teal-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                    </svg>
-                        <span>Edit</span>
-                    </a>
-                </div>
+            <!-- ./Elemen di Tengah -->
+
+            <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
             </div>
-        </div>
-        <div class="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-4">
-            <div class="h-full w-full flex flex-col">
-                <div class="flex-1 bg-white rounded-lg shadow-xl p-8" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <h4 class="text-xl text-gray-900 font-bold">Personal Info</h4>
-                    <ul class="mt-2 text-gray-700">
-                        <li class="flex border-y py-2">
-                            <span class="font-bold w-24">Name:</span>
-                            <span class="text-gray-700">Cha Eunwoo</span>
-                        </li>
-                        <li class="flex border-b py-2">
-                            <span class="font-bold w-24">Email</span>
-                            <span class="text-gray-700">chaeunwoo@gmail.com</span>
-                        </li>
-                        <li class="flex border-b py-2">
-                            <span class="font-bold w-24">Alamat</span>
-                            <span class="text-gray-700">Buman II</span>
-                        </li>
-                        <li class="flex border-b py-2">
-                            <span class="font-bold w-24">No. Telepon</span>
-                            <span class="text-gray-700">089577899654</span>
-                        </li>
-                    </ul>
-                </div>            
+            <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"></script>
+                <!-- </div>            
             </div> 
         </div>
-    </div>
+    </div> -->
 </body>
 </html>
