@@ -9,7 +9,8 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->get('/', [CustomerController::class, 'landingpage']);
+// $routes->post('/', [CustomerController::class, 'homescreen']);
+$routes->get('/', [CustomerController::class, 'homescreen']);
 
 // ? Customer
 // $routes->get('/', 'Home::index');
@@ -17,7 +18,9 @@ $routes->get('/customer/signin', [CustomerController::class, 'sign_in']);
 $routes->get('/customer/signup', [CustomerController::class, 'registerPembeli']);
 $routes->get('/customer/forgotpass', [CustomerController::class, 'forgot_password']);
 $routes->get('/customer/profile', [CustomerController::class, 'profilePembeli']);
-$routes->get('/customer/home', [CustomerController::class, 'homescreen']);
+$routes->get('/customer/home', [CustomerController::class, 'homescreen']); 
+$routes->get('/customer/category/shoes', [CustomerController::class, 'shoes']); 
+$routes->get('/customer/grade', [CustomerController::class, 'grade']); 
 
 
 // ? Seller
