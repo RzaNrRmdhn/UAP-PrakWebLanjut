@@ -160,7 +160,7 @@
                         </span>
                     </button>
                     <div x-show="open" class="bg-gray-100">
-                        <a class="py-2 px-16 block text-sm text-black hover:bg-gradient-to-r from-teal-700 to-teal-300 hover:text-white" href="<?php echo base_url('customer/grade') ?>">
+                        <a class="py-2 px-16 block text-sm text-black hover:bg-gradient-to-r from-teal-700 to-teal-300 hover:text-white" href="<?php echo base_url('customer/grade')?>">
                             <span class="material-symbols-outlined">
                                 grade
                             </span>
@@ -214,8 +214,8 @@
                 <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] bg-gradient-to-tr from-sky-700 to-teal-300 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
             </div>
             
-            <div id="default-carousel" class="relative w-full" data-carousel="slide">
-                <!-- Carousel wrapper -->
+            <!-- <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                         <img src="<?= base_url('assets/register.png')?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
@@ -227,13 +227,13 @@
                         <img src="<?= base_url('assets/register.png')?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     </div>
                 </div>
-                <!-- Slider indicators -->
+                
                 <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2 bg-teal-700 rounded-lg">
                     <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
                     <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
                     <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
                 </div>
-                <!-- Slider controls -->
+                
                 <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
                     <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-teal-700 dark:bg-gray-800/30 group-hover:bg-teal-500 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                         <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -250,7 +250,7 @@
                         <span class="sr-only">Next</span>
                     </span>
                 </button>
-            </div>
+            </div> -->
             <!-- Grid Product -->
             <div class="mx-auto max-w-2xl px-4 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
                 <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">We invest in the world’s potential</h1>
@@ -258,7 +258,7 @@
                 <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                 <?php
                     foreach($barang as $barang){
-                        if ($barang['nama_barang']) {
+                        if ($barang['grade'] == 'A') {
                 ?>
                 <a href="#" class="group">
                     <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">

@@ -39,10 +39,10 @@
         </div>
         <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('customer/signin')?>">Sign In</a>
+                <a class="nav-link" href="<?php echo base_url('/login')?>">Sign In</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('customer/signup')?>">Sign Up</a>
+                <a class="nav-link" href="<?php echo base_url('/register')?>">Sign Up</a>
             </li>
         </ul>
     </div>
@@ -55,6 +55,10 @@
         <h1>"Discovering Treasures at the <br><span>Thrift</span> Store"</h1>
         <p>Exploring the vintage and secondhand wonders in the thrift store, where every item <br>tells a unique story and offers an eco-friendly and budget-conscious shopping experience.</p>
         <a href="#" type="button" class="btn btn-primary" style="font-weight: 700;">Sign in</a>
+        <form action="<?= url_to('logout') ?>">
+            <?= csrf_field() ?>
+            <button type="submit">Logout</button>
+        </form>
         </div>
         <div class="hero-img">
             <img src="<?= base_url('assets/img/hero.png') ?>" alt="" >
@@ -79,31 +83,31 @@
 </section>
 
 <!-- footer -->
-<footer class="footer" id="contact">
-  	 <div class="footer-container">
-  	 	<div class="footer-row">
-  	 		<div class="footer-col">
-  	 			<h4>Contact Us</h4>
-  	 			<div class="contact-links">
-                   <ul>
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i></a><span>Indonesia, Bandar Lampung</span></li>
-                    <a href="#"><i class="fas fa-envelope"></i></a><span>thriftingwebindo@gmail.com<span>
-                    </ul>
-  	 			</div>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>follow us</h4>
-  	 			<div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
-  	 				<a href="#"><i class="fab fa-twitter"></i></a>
-  	 				<a href="#"><i class="fab fa-instagram"></i></a>
-  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
-  	 			</div>
-  	 		</div>
-  	 	</div>
-  	 </div>
-    <div class="bottom-bar"><p>@2023 ThriftingWeb | All Right Reserved</p></div>
-  </footer>
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="contact-links">
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i></a><span>Indonesia, Bandar Lampung</span></li>
+                        <a href="#"><i class="fas fa-envelope"></i></a><span>thriftingwebindo@gmail.com<span>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar"><p>@2023 ThriftingWeb | All Right Reserved</p></div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

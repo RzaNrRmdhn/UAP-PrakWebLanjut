@@ -6,13 +6,21 @@ use CodeIgniter\Model;
 
 class SellerModel extends Model
 {
+
     protected $table            = 'akun';
+
+    protected $table            = 'kategori_barang';
+
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
+
     protected $allowedFields    = ['email', 'username', 'password', 'roles'];
+
+    protected $allowedFields    = ['nama_kategori'];
+
 
     // Dates
     protected $useTimestamps = true;
@@ -38,7 +46,12 @@ class SellerModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+
     public function getseller(){
         return $this->findAll();
+
+    public function saveBarang($data){
+        $this->insert($data);
+
     }
 }
