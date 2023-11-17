@@ -7,8 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    
-    
     <div class="bg-teal-700 absolute bg-gradient-to-b from-teal-700 via-teal-500 to-teal-300 bottom-0 leading-5 h-full w-full overflow-hidden"></div>
         <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
             <div class="relative py-3 sm:max-w-xl sm:mx-auto">

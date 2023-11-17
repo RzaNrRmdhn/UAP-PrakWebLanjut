@@ -10,7 +10,6 @@
     <title>Dashboard Admin</title>
 </head>
 <body>
-
 <style>
   /* Custom style */
   .header-right {
@@ -77,7 +76,7 @@
               </a>
             </li>
             <li>
-              <a href="<?= base_url('/admin/list_admin') ?>" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-teal-700 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-teal-500 dark:hover:border-gray-800 pr-6">
+              <a href="<?= base_url('/admin/list_admin') ?>" class="relative flex flex-row items-center h-11 focus:outline-none bg-teal-700 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-teal-500 dark:hover:border-gray-800 pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -87,7 +86,7 @@
               </a>
             </li>
             <li>
-              <a href="<?= base_url('/admin/list_seller') ?>" class="relative flex flex-row items-center h-11 focus:outline-none bg-teal-700 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-teal-500 dark:hover:border-gray-800 pr-6">
+              <a href="<?= base_url('/admin/list_seller') ?>" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-teal-700 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-teal-500 dark:hover:border-gray-800 pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                 </span>
@@ -150,146 +149,66 @@
 
       <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 
-    <!-- Table seller -->
-    <div class="p-4 mt-4 ml-4">
-        <h2 class="text-xl font-bold text-teal-700">List Seller</h2>
+        <!-- admin profile -->
+    <div class="h-full bg-gray-200 p-8">
+        <div class="bg-white rounded-lg shadow-xl pb-8">
+        <form action="<?=base_url('admin/store')?>" method="post">
+            <div class="w-full h-[200px]">
+                <img class="w-full h-full rounded-tl-lg rounded-tr-lg bg-gradient-to-b from-teal-800 to-teal-400">
+            </div>
+            <div class="flex flex-col items-center -mt-20">
+            <img src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" class="w-40 border-4 border-white rounded-full">
+                <div class="flex items-center space-x-2 mt-2">
+                <span class="sr-only t-2">Choose profile photo</span>
+                  <input type="file" class="w-full text-sm text-slate-500
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-full file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-teal-500 file:text-white
+                    hover:file:bg-teal-700
+                  "/>
+                </div>
+            </div>
+    
+        </div>
+        <div class="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-4">
+            <div class="h-full w-full flex flex-col">
+                <div class="flex-1 bg-white rounded-lg shadow-xl p-8" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h4 class="text-xl text-gray-900 font-bold">Personal Info</h4>
+                    <ul class="mt-2 text-gray-700">
+                        <li class="flex border-y py-2">
+                        <label for="email"
+                            class="w-24 text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full px-3 py-2 border rounded-md" placeholder="username@gmail.com" required>
+                        </li>
+                        <li class="flex border-y py-2">
+                        <label for="name"
+                            class="w-24 text-gray-700 text-sm font-bold mb-2">Name:</label>
+                        <input type="text" id="name" name="name"
+                            class="w-full px-3 py-2 border rounded-md" placeholder="Your Name" required>
+                        </li>
+                        <li class="flex border-b py-2">
+                        <label for="alamat"
+                            class="w-24 text-gray-700 text-sm font-bold mb-2">Password:</label>
+                        <input type="password" id="password" name="password"
+                            class="w-full px-3 py-2 border rounded-md" placeholder="••••" required>
+                        </li>
+                        <li class="flex border-b py-2">
+                            <label for="roles" 
+                              class="w-24 text-gray-700 text-sm font-bold mb-2">Roles:</label>
+                            <input type="text" id="roles" name="roles" 
+                              class="w-full px-3 py-2 border rounded-md" placeholder="admin" value="admin" readonly>
+                        </li>
+                        <button type="submit"
+                        class="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-gradient-to-r from-teal-800 to-teal-400 focus:outline-none focus:shadow-outline-teal active:bg-teal-800">Add Admin</button>
+                        
+                    </ul>
+                </div>            
+            </div>
+            </form> 
+        </div>
     </div>
-    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
-    <table class="w-full border-collapse bg-white text-left text-sm text-black-500">
-    <thead class="bg-gradient-to-b from-teal-700 to-teal-500">
-      <tr>
-        <th scope="col" class="px-6 py-4 font-medium text-white">No</th>
-        <th scope="col" class="px-6 py-4 font-medium text-white">Email</th>
-        <th scope="col" class="px-6 py-4 font-medium text-white">Name</th>
-        <th scope="col" class="px-6 py-4 font-medium text-white">Status</th>
-        <th scope="col" class="px-6 py-4 font-medium text-white">Action</th>
-      </tr>
-    </thead>
-    <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-      <tr class="hover:bg-teal-100">
-      <?php foreach ($Seller as $seller): ?>
-        <?php if ($seller['roles'] == 'seller'): ?>
-            <tr>
-                <td class="px-6 py-4">1</td>
-                <td class="px-6 py-4"><?= $seller['email'] ?></td>
-                <td class="px-6 py-4"><?= $seller['username'] ?></td>
-                <td class="px-6 py-4">
-                  <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-100 px-2 py-1 text-xs font-semibold text-green-600">
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Active
-                  </span>
-                </td>
-                <td class="px-6 py-4">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                        </svg>
-                    </button>
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-                    </button>
-                </td>
-            </tr>
-        <?php endif; ?>
-      <?php endforeach; ?>
 
-        <!-- <td class="px-6 py-4">1</td>
-        <td class="px-6 py-4">steven211@gmail.com</td>
-        <td class="px-6 py-4">steven nuri</td>
-        <td class="px-6 py-4">
-          <span
-            class="inline-flex items-center gap-1 rounded-full bg-green-100 px-2 py-1 text-xs font-semibold text-green-600">
-            <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-            Active
-          </span>
-        </td>
-        <td class="px-6 py-4">
-          <div class="flex gap-4">
-            <a x-data="{ tooltip: 'Delete' }" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6"
-                x-tooltip="tooltip">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/>
-              </svg>
-            </a>
-            <a x-data="{ tooltip: 'Edite' }" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6"
-                x-tooltip="tooltip">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"/>
-              </svg>
-            </a>
-          </div>
-        </td>
-      </tr>
-      <tr class="hover:bg-teal-100">
-        <td class="px-6 py-4">2</td>
-        <td class="px-6 py-4">sila123@gmail.com</td>
-        <td class="px-6 py-4">sila amanda</td>
-        <td class="px-6 py-4">
-          <span
-            class="inline-flex items-center gap-1 rounded-full bg-red-100 px-2 py-1 text-xs font-semibold text-red-600">
-            <span class="h-1.5 w-1.5 rounded-full bg-red-600"></span>
-            Banned
-          </span>
-        </td>
-        <td class="px-6 py-4">
-          <div class="flex gap-4">
-            <a x-data="{ tooltip: 'Delete' }" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6"
-                x-tooltip="tooltip">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/>
-              </svg>
-            </a>
-            <a x-data="{ tooltip: 'Edite' }" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6"
-                x-tooltip="tooltip">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"/>
-              </svg>
-            </a>
-          </div>
-        </td>
-      </tr> -->
-      
-    </tbody>
-  </table>
-</div>
 </body>
 </html>
