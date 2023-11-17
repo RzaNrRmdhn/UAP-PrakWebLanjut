@@ -9,8 +9,8 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-// $routes->post('/', [CustomerController::class, 'homescreen']);
-$routes->get('/', [CustomerController::class, 'homescreen']);
+$routes->get('/', [CustomerController::class, 'landingpage']);
+// $routes->get('/', [CustomerController::class, 'homescreen']);
 
 // ? Customer
 // $routes->get('/', 'Home::index');
@@ -23,11 +23,8 @@ $routes->get('/customer/home', [CustomerController::class, 'homescreen']);
 $routes->get('/customer/update_profile/(:any)', [CustomerController::class, 'updateProfile']);
 $routes->put('/customer/update_profile/(:any)', [CustomerController::class, 'update']);
 
-$routes->get('/customer/home', [CustomerController::class, 'homescreen']); 
 $routes->get('/customer/category/shoes', [CustomerController::class, 'shoes']); 
 $routes->get('/customer/grade', [CustomerController::class, 'grade']); 
-
-
 
 // ? Seller
 // $routes->get('/seller', 'Seller\Home::index'); 

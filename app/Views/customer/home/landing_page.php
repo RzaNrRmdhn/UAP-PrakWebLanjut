@@ -55,10 +55,6 @@
         <h1>"Discovering Treasures at the <br><span>Thrift</span> Store"</h1>
         <p>Exploring the vintage and secondhand wonders in the thrift store, where every item <br>tells a unique story and offers an eco-friendly and budget-conscious shopping experience.</p>
         <a href="#" type="button" class="btn btn-primary" style="font-weight: 700;">Sign in</a>
-        <form action="<?= url_to('logout') ?>">
-            <?= csrf_field() ?>
-            <button type="submit">Logout</button>
-        </form>
         </div>
         <div class="hero-img">
             <img src="<?= base_url('assets/img/hero.png') ?>" alt="" >

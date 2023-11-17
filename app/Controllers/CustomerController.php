@@ -20,13 +20,22 @@ class CustomerController extends BaseController
         if (logged_in()) {
             if(in_groups('penjual')){
                 dd("ini halaman penjual");
-            }else if(in_groups('pembeli')){
-                return view('customer/profile/profile_pembeli');
+            }else if(in_groups('customer')){
+                $customerModel = new CustomerModel();
+                $barang = $customerModel->getBarang();
+                
+                $data = [
+                    'barang' => $barang
+                ];
+                return view('customer/home/dashboard', $data);
             }
         }else{
         return view('customer/home/landing_page');
         }
     }
+    // public function landingpage(){
+    //     return view('customer/home/landing_page');
+    // }
 
     public function sign_in()
     {
