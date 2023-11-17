@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class SellerModel extends Model
 {
-    protected $table            = 'sellers';
+    protected $table            = 'kategori_barang';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['nama_kategori'];
 
     // Dates
     protected $useTimestamps = false;
@@ -37,4 +37,8 @@ class SellerModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function saveBarang($data){
+        $this->insert($data);
+    }
 }

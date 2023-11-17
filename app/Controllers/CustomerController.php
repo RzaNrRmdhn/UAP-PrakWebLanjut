@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\CustomerModel;
 
 class CustomerController extends BaseController
 {
@@ -34,8 +35,34 @@ class CustomerController extends BaseController
     {
         return view('customer/profile/profile_pembeli');
     }
-  
     public function homescreen(){
-        return view('customer/home/dashboard');
+        $customerModel = new CustomerModel();
+        $barang = $customerModel->getBarang();
+        
+        $data = [
+            'barang' => $barang
+        ];
+
+        return view('customer/home/dashboard', $data);
+    }
+
+    public function shoes(){
+        $customerModel = new CustomerModel();
+        $barang = $customerModel->getBarang();
+        
+        $data = [
+            'barang' => $barang
+        ];
+        return view('customer/home/shoes', $data);
+    }
+
+    public function grade(){
+        $customerModel = new CustomerModel();
+        $barang = $customerModel->getBarang();
+        
+        $data = [
+            'barang' => $barang
+        ];
+        return view('customer/home/grade', $data);
     }
 }
