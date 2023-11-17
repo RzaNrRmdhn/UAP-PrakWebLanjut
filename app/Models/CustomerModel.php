@@ -7,17 +7,16 @@ use CodeIgniter\Model;
 class CustomerModel extends Model
 {
 
-    protected $table            = 'akun';
-
     protected $table            = 'barang';
 
+    // protected $table            = 'barang';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
 
-    protected $allowedFields    = ['email', 'username', 'password', 'roles'];
+    // protected $allowedFields    = ['email', 'username', 'password', 'roles'];
 
     protected $allowedFields    = ['nama_barang', 'harga_barang', 'id_kategori', 'image', 'grade'];
 
@@ -49,10 +48,9 @@ class CustomerModel extends Model
 
     public function getcustomer(){
         return $this->findAll();
-
-    public function saveUser($data){
-        $this->insert($data);
     }
+    
+    
 
     public function getBarang($id = null){
         // if($id != null){
