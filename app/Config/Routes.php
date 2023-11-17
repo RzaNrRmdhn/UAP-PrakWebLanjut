@@ -18,8 +18,8 @@ $routes->get('/customer/signup', [CustomerController::class, 'registerPembeli'])
 $routes->get('/customer/forgotpass', [CustomerController::class, 'forgot_password']);
 $routes->get('/customer/profile', [CustomerController::class, 'profilePembeli']);
 $routes->get('/customer/home', [CustomerController::class, 'homescreen']);
-
-
+$routes->get('/customer/update_profile/(:any)', [CustomerController::class, 'updateProfile']);
+$routes->put('/customer/update_profile/(:any)', [CustomerController::class, 'update']);
 // ? Seller
 // $routes->get('/seller', 'Seller\Home::index'); 
 $routes->get('/seller/signup', [SellerController::class, 'registerPenjual']);

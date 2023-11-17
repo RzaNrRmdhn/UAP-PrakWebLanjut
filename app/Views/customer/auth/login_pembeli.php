@@ -24,13 +24,14 @@
                     <p class="text-gray-400">Don't have an account? 
                     <a href="<?php echo base_url('customer/signup')?>" class="font-bold text-sm text-black hover:text-blue-700">Sign Up</a></p>
                 </div>
-                <form action="">
+                <form action="<?= url_to('login') ?>" method="post">
+						<?= csrf_field() ?>
                     <div class="space-y-6">
                         <div>
-                            <input class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-teal-400" type="" placeholder="Email">
+                            <input class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-teal-400" type="" placeholder="Email" name="login">
                         </div>
                             <div class="relative" x-data="{ show: true }">
-                                <input placeholder="Password" :type="show ? 'password' : 'text'" class="text-sm text-gray-200 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-teal-400">
+                                <input name="password" placeholder="Password" :type="show ? 'password' : 'text'" class="text-sm text-gray-200 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-teal-400">
                                 <div class="flex items-center absolute inset-y-0 right-0 mr-3  text-sm leading-5">
     
                                     <svg @click="show = !show" :class="{'hidden': !show, 'block':show }" class="h-4 text-gray-800" fill="none" xmlns="http://www.w3.org/2000/svg"
