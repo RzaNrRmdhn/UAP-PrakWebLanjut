@@ -33,7 +33,7 @@
                             <input class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-teal-400 form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" name="email" placeholder="Email">
                         </div> 
                         <div>
-                            <input class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-teal-400 form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="Email">
+                            <input class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-teal-400 form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="Username">
                         </div>
                             <div class="relative" x-data="{ show: true }">
                                 <input name="password" placeholder="Password" :type="show ? 'password' : 'text'" class="text-sm text-gray-200 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-teal-400 <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>">
