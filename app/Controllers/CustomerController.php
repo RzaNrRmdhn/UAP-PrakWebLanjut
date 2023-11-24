@@ -30,32 +30,26 @@ class CustomerController extends BaseController
                 return view('customer/home/dashboard', $data);
             }
         }else{
-        return view('customer/home/landing_page');
+            return view('customer/home/landing_page');
         }
     }
-    // public function landingpage(){
-    //     return view('customer/home/landing_page');
-    // }
 
-    public function sign_in()
-    {
+    public function sign_in(){
         return view('customer/auth/login_pembeli');
     }
 
-    public function forgot_password()
-    {
+    public function forgot_password(){
         return view('customer/auth/forgot_password');
     }
 
-    public function registerPembeli(): string
-    {
+    public function registerPembeli(){
         return view('customer/auth/register_pembeli');
     }
 
-    public function profilePembeli(): string
-    {
+    public function profilePembeli(){
         return view('customer/profile/profile_pembeli');
     }
+
     public function homescreen(){
         $customerModel = new CustomerModel();
         $barang = $customerModel->getBarang();
@@ -87,8 +81,7 @@ class CustomerController extends BaseController
         return view('customer/home/grade', $data);
     }
 
-    public function updateProfile($id): string
-    {
+    public function updateProfile($id){
         $userModel = new UsersModel();
         $user = $userModel->getUser($id);
         $data = [
@@ -97,8 +90,8 @@ class CustomerController extends BaseController
         ];
         return view('customer/profile/update_profile', $data);
     }
-    public function update($id)
-    {
+
+    public function update($id){
         $userModel = new UsersModel();
         $data = [
             'username' => $this->request->getVar('username'),
@@ -113,5 +106,9 @@ class CustomerController extends BaseController
         }
 
         return redirect()->to(base_url('/'));
+    }
+
+    public function cart(){
+        return view('customer/home/cart');
     }
 }

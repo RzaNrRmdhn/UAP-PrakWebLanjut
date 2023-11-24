@@ -9,7 +9,7 @@ class SellerModel extends Model
 
     protected $table            = 'akun';
 
-    protected $table            = 'kategori_barang';
+    // protected $table            = 'kategori_barang';
 
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
@@ -19,7 +19,7 @@ class SellerModel extends Model
 
     protected $allowedFields    = ['email', 'username', 'password', 'roles'];
 
-    protected $allowedFields    = ['nama_kategori'];
+    // protected $allowedFields    = ['nama_kategori'];
 
 
     // Dates
@@ -49,6 +49,7 @@ class SellerModel extends Model
 
     public function getseller(){
         return $this->findAll();
+    }
 
     public function saveBarang($data){
         $this->insert($data);

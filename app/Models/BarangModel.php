@@ -4,16 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CustomerModel extends Model
+class BarangModel extends Model
 {
-
     protected $table            = 'barang';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_barang', 'harga_barang', 'id_kategori', 'image', 'grade'];
+    protected $allowedFields    = ['nama_barang', 'harga_barang', 'id_kategori', 'image', 'deskripsi_barang' ,'grade'];
 
     // Dates
     protected $useTimestamps = true;
@@ -38,13 +37,6 @@ class CustomerModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-
-    public function getcustomer(){
-        return $this->findAll();
-    }
-    
-    
 
     public function getBarang($id = null){
         // if($id != null){
