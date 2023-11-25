@@ -53,10 +53,15 @@ class CustomerModel extends Model
     
 
     public function getBarang($id = null){
-        // if($id != null){
-        //     return $this->select('user.*, kelas.nama_kelas')->join('kelas', 'kelas.id=user.id_kelas')->find($id);
-        // }
+        if($id != null){
+            return $this->db->table('barang')->where('grade', $id)->get()->getResultArray();
+        }
         return $this->select('barang.*, kategori_barang.nama_kategori')->join('kategori_barang', 'kategori_barang.id=kategori_barang.id')->findAll();
-
+    }
+    public function getBarangByCategory($id = null){
+        if($id != null){
+            return $this->db->table('barang')->where('nama_barang', $id)->get()->getResultArray();
+        }
+        return $this->select('barang.*, kategori_barang.nama_kategori')->join('kategori_barang', 'kategori_barang.id=kategori_barang.id')->findAll();
     }
 }

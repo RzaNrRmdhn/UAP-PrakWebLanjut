@@ -15,4 +15,9 @@ class SellerController extends BaseController
     {
         return view('seller/auth/register_penjual');
     }
+
+    public function upload_barang(): string
+    {
+        return view('seller/home/upload_barang');
+    }
 }

@@ -24,12 +24,15 @@ $routes->get('/customer/home', [CustomerController::class, 'homescreen']);
 $routes->get('/customer/update_profile/(:any)', [CustomerController::class, 'updateProfile']);
 $routes->put('/customer/update_profile/(:any)', [CustomerController::class, 'update']);
 
-$routes->get('/customer/category/shoes', [CustomerController::class, 'shoes']); 
-$routes->get('/customer/grade', [CustomerController::class, 'grade']); 
+$routes->get('/customer/category/(:any)', [CustomerController::class, 'category_barang']); 
+$routes->get('/customer/grade/(:any)', [CustomerController::class, 'grade']); 
+
+$routes->get('/customer/cart', [CustomerController::class, 'cart']); 
 
 // ? Seller
 // $routes->get('/seller', 'Seller\Home::index'); 
 $routes->get('/seller/signup', [SellerController::class, 'registerPenjual']);
+$routes->get('/seller/upload_barang', [SellerController::class, 'upload_barang']);
 
 // ? Admin
 // $routes->get('/admin/signin', 'Admin\Home::index');
