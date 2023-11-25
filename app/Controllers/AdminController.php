@@ -64,6 +64,9 @@ class AdminController extends BaseController
         // Tampilkan halaman list_admin dengan data terbaru
         return view('admin/home/list_admin', $data);
     }
+    public function payment_acc(){
+        return view('admin/home/payment_acc');
+    }
 
     public function grade_admin(){
         return view('admin/home/grade_admin');
