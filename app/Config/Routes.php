@@ -10,6 +10,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 $routes->get('/', [CustomerController::class, 'landingpage']);
+$routes->get('/landingpage', [CustomerController::class, 'landingpage']);
 // $routes->get('/', [CustomerController::class, 'homescreen']);
 
 // ? Customer
@@ -42,4 +43,7 @@ $routes->get('/admin/list_customer', [AdminController::class, 'list_customer']);
 $routes->get('/admin/admin_profile', [AdminController::class, 'admin_profile']);
 $routes->get('/admin/create_admin', [AdminController::class, 'create_admin']);
 $routes->post('/admin/store', [AdminController::class, 'store']);
+$routes->get('/admin/payment_acc', [AdminController::class, 'payment_acc']);
+$routes->get('/admin/grade_admin', [AdminController::class, 'grade_admin']);
+
 

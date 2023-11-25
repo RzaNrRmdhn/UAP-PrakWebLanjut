@@ -24,6 +24,7 @@
       }        
   }
 </style>
+  
 <div x-data="setup()" :class="{ 'dark': isDark }">
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
       <!-- Header -->
@@ -94,7 +95,7 @@
               </a>
             </li>
             <li>
-              <a href="<?= base_url('/admin/list_customer') ?>" class="relative flex flex-row items-center h-11 focus:outline-none bg-teal-700 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-teal-500 dark:hover:border-gray-800 pr-6">
+              <a href="<?= base_url('/admin/list_customer') ?>" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-teal-700 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-teal-500 dark:hover:border-gray-800 pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
@@ -109,7 +110,7 @@
               </div>
             </li>
             <li>
-              <a href="/admin/payment_acc" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-teal-700 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-teal-500 dark:hover:border-gray-800 pr-6">
+              <a href="<?= base_url('/admin/payment_acc') ?>" class="relative flex flex-row items-center h-11 focus:outline-none bg-teal-700 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-teal-500 dark:hover:border-gray-800 pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -149,120 +150,112 @@
 
       <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
 
-    <!-- Customers Table -->
-    <div class="p-4 mt-4 ml-4">
-        <h2 class="text-xl font-bold text-teal-700">List Customers</h2>
-    </div>
-    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
-    <table class="w-full border-collapse bg-white text-left text-sm text-black-500">
-    <thead class="bg-gradient-to-b from-teal-700 to-teal-500">
-      <tr>
-        <th scope="col" class="px-6 py-4 font-medium text-white">No</th>
-        <th scope="col" class="px-6 py-4 font-medium text-white">Email</th>
-        <th scope="col" class="px-6 py-4 font-medium text-white">Name</th>
-        <th scope="col" class="px-6 py-4 font-medium text-white">Action</th>
-      </tr>
-    </thead>
-    <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-      <tr class="hover:bg-teal-100">
-      <?php foreach ($Customer as $customer): ?>
-        <?php if ($customer['roles'] == 'customer'): ?>
-            <tr>
-                <td class="px-6 py-4">1</td>
-                <td class="px-6 py-4"><?= $customer['email'] ?></td>
-                <td class="px-6 py-4"><?= $customer['username'] ?></td>
-                <td class="px-6 py-4">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-                    </button>
-                </td>
-            </tr>
-        <?php endif; ?>
-      <?php endforeach; ?>
-    
-        <!-- <td class="px-6 py-4">1</td>
-        <td class="px-6 py-4">Jenotama@gmail.com</td>
-        <td class="px-6 py-4">Jeno Pratama</td>
-        <td class="px-6 py-4">
-          <div class="flex gap-4">
-            <a x-data="{ tooltip: 'Delete' }" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6"
-                x-tooltip="tooltip">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/>
-              </svg>
-            </a>
-            <a x-data="{ tooltip: 'Edite' }" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6"
-                x-tooltip="tooltip">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"/>
-              </svg>
-            </a>
-          </div>
-        </td>
-      </tr>
-      <tr class="hover:bg-teal-100">
-        <td class="px-6 py-4">2</td>
-        <td class="px-6 py-4">Joyies@gmail.com</td>
-        <td class="px-6 py-4">Joy Consina</td>
-        <td class="px-6 py-4">
-          <div class="flex gap-4">
-            <a x-data="{ tooltip: 'Delete' }" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6"
-                x-tooltip="tooltip">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/>
-              </svg>
-            </a>
-            <a x-data="{ tooltip: 'Edite' }" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6"
-                x-tooltip="tooltip">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"/>
-              </svg>
-            </a>
-          </div>
-        </td>
-      </tr> -->
-      
-    </tbody>
-  </table>
+
+<!-- Bagian Konten untuk Payment Acc -->
+<div class="flex justify-center items-center mt-20">
+    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-2xl">
+        <h2 class="text-2xl font-semibold mb-4">Detail Pembayaran</h2>
+
+<!-- Tombol untuk mengirimkan pembayaran yang diacc -->
+<div class="mt-8 flex justify-end">
+    <button type="submit" class="bg-teal-500 text-white px-4 py-2 rounded-md">Pilih Semua</button>
 </div>
-        <!-- ./Customers Table -->
+
+        <!-- Form untuk mengirimkan pembayaran yang diacc -->
+        <form action="/proses-pembayaran" method="post">
+            <!-- Kartu list untuk setiap pembayaran -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                
+                <!-- Kartu Pembayaran 1 -->
+                <div class="border p-4 rounded-md">
+                    <h3 class="text-lg font-semibold mb-2">Pembayaran 1</h3>
+                    <!-- Informasi Barang -->
+                    <div class="mb-4">
+                        <!-- Tambahkan input checkbox -->
+                        <input type="checkbox" name="pembayaran[]" value="1" class=" float-right transform scale-150 origin-top-right">
+                        <p class="text-gray-600"><strong>Nama Barang:</strong> Sepatu </p>
+                        <p class="text-gray-600"><strong>Harga:</strong> Rp 150.000</p>
+                        <p class="text-gray-600"><strong>Jumlah:</strong> 1</p>
+                    </div>
+                    <!-- Informasi Pembeli -->
+                    <div>
+                        <h4 class="text-md font-semibold mb-2">Informasi Pembeli</h4>
+                        <p class="text-gray-600"><strong>Username:</strong> Michael </p>
+                        <p class="text-gray-600"><strong>Alamat:</strong> Jl. Buman No. 1, Kota Bandar Lampung</p>
+                        <p class="text-gray-600"><strong>No. Telepon:</strong> 0878 9878 7890</p>
+                    </div>
+                    <!-- Total Pembayaran -->
+                     <div class="mt-4">
+                        <p class="text-gray-600"><strong>Total Pembayaran:</strong> Rp 150.000</p>
+                    </div>
+                    </div>
+   
+
+                <!-- Kartu Pembayaran 2 -->
+                <div class="border p-4 rounded-md">
+                <h3 class="text-lg font-semibold mb-2">Pembayaran 2</h3>
+                    <!-- Informasi Barang -->
+                    <div class="mb-4">
+                        <!-- Tambahkan input checkbox -->
+                        <input type="checkbox" name="pembayaran[]" value="1" class=" float-right transform scale-150 origin-top-right">
+                        <p class="text-gray-600"><strong>Nama Barang:</strong> Sepatu </p>
+                        <p class="text-gray-600"><strong>Harga:</strong> Rp 150.000</p>
+                        <p class="text-gray-600"><strong>Jumlah:</strong> 1</p>
+                    </div>
+                    <!-- Informasi Pembeli -->
+                    <div>
+                        <h4 class="text-md font-semibold mb-2">Informasi Pembeli</h4>
+                        <p class="text-gray-600"><strong>Username:</strong> Susanti </p>
+                        <p class="text-gray-600"><strong>Alamat:</strong> Jl. Persegi , Kota Metro</p>
+                        <p class="text-gray-600"><strong>No. Telepon:</strong> 0856 4536 4325</p>
+                    </div>
+                    <!-- Total Pembayaran -->
+                    <div class="mt-4">
+                        <p class="text-gray-600"><strong>Total Pembayaran:</strong> Rp 200.000</p>
+                    </div>
+                </div>
+              
+
+                <!-- Kartu Pembayaran 3 -->
+                <div class="border p-4 rounded-md">
+                <h3 class="text-lg font-semibold mb-2">Pembayaran 3</h3>
+                    <!-- Informasi Barang -->
+                    <div class="mb-4">
+                        <!-- Tambahkan input checkbox -->
+                        <input type="checkbox" name="pembayaran[]" value="1" class=" float-right transform scale-150 origin-top-right">
+                        <p class="text-gray-600"><strong>Nama Barang:</strong> Sepatu </p>
+                        <p class="text-gray-600"><strong>Harga:</strong> Rp 150.000</p>
+                        <p class="text-gray-600"><strong>Jumlah:</strong> 1</p>
+                    </div>
+
+                        <!-- <input type="checkbox" name="pembayaran[]" value="1" class="mr-2">
+                        <p class="text-gray-600"><strong>Nama Barang:</strong> Sweater Rajut </p>
+                        <p class="text-gray-600"><strong>Harga:</strong> Rp 150.000</p>
+                        <p class="text-gray-600"><strong>Jumlah:</strong> 1</p>
+                    </div> -->
+                    <!-- Informasi Pembeli -->
+                    <div>
+                        <h4 class="text-md font-semibold mb-2">Informasi Pembeli</h4>
+                        <p class="text-gray-600"><strong>Username:</strong> Tika </p>
+                        <p class="text-gray-600"><strong>Alamat:</strong> Jl. Untung , Kota Bandar lampung</p>
+                        <p class="text-gray-600"><strong>No. Telepon:</strong>0857 6654 4523</p>
+                    </div>
+                    <!-- Total Pembayaran -->
+                    <div class="mt-4">
+                        <p class="text-gray-600"><strong>Total Pembayaran:</strong> Rp 150.000</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol untuk mengirimkan pembayaran yang diacc -->
+            <div class="mt-8">
+                <button type="submit" class="bg-teal-500 text-white px-4 py-2 rounded-md">Terima Pembayaran Terpilih</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    
+
 </body>
 </html>
