@@ -4,18 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class SellerModel extends Model
+class BarangModel extends Model
 {
-
-    protected $table            = 'akun';
-
+    protected $table            = 'barang';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-
-    protected $allowedFields    = ['email', 'username', 'password', 'roles'];
+    protected $allowedFields    = ['nama_barang', 'harga_barang', 'id_kategori', 'image', 'deskripsi_barang', 'grade'];
 
     // Dates
     protected $useTimestamps = true;
@@ -41,14 +38,8 @@ class SellerModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-
-    public function getseller(){
-        return $this->findAll();
+    public function getBarang($id = null){
+        return $this->select('barang.*, kategori_barang.nama_kategori')->join('kategori_barang', 'kategori_barang.id=kategori_barang.id')->findAll();
 
     }
-
-    // public function saveBarang($data){
-    //     $this->insert($data);
-
-    // }
 }

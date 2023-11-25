@@ -10,6 +10,15 @@
     <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+    @layer utilities {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+</style>
 </head>
 <body>
     <!-- Navbar -->
@@ -81,9 +90,9 @@
                                 </li>
                                 <li>
                                 <form action="<?= url_to('logout') ?>">
-            <?= csrf_field() ?>
-            <button type="submit">Logout</button>
-        </form>
+                                    <?= csrf_field() ?>
+                                    <button type="submit">Logout</button>
+                                </form>
                                 </li>
                             </ul>
                             </div>
@@ -160,13 +169,13 @@
                         </span>
                     </button>
                     <div x-show="open" class="bg-gray-100">
-                        <a class="py-2 px-16 block text-sm text-black hover:bg-gradient-to-r from-teal-700 to-teal-300 hover:text-white" href="<?php echo base_url('customer/grade/A')?>">
+                        <a class="py-2 px-16 block text-sm text-black hover:bg-gradient-to-r from-teal-700 to-teal-300 hover:text-white" href="<?php echo base_url('customer/grade/A') ?>">
                             <span class="material-symbols-outlined">
                                 grade
                             </span>
                             Grade A
                         </a>
-                        <a class="py-2 px-16 block text-sm text-black hover:bg-gradient-to-r from-teal-700 to-teal-300 hover:text-white" href="#">
+                        <a class="py-2 px-16 block text-sm text-black hover:bg-gradient-to-r from-teal-700 to-teal-300 hover:text-white" href="<?php echo base_url('customer/grade/B') ?>">
                             <span class="material-symbols-outlined">
                                 grade
                             </span>
@@ -205,36 +214,95 @@
             <div class="absolute inset-x-0 -top-40 -z-10 overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
                 <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] bg-gradient-to-tr from-sky-700 to-teal-300 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
             </div>
+            
+
             <!-- Grid Product -->
-            <div class="mx-auto max-w-2xl px-4 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
-                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">We invest in the world’s potential</h1>
-                <h2 class="sr-only">Products</h2>
-                <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                <?php
-                    foreach($barang as $barang){
-                ?>
-                <a href="#" class="group">
-                    <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                    <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
-                    <!-- <img src="<?=$barang['image']?>" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75"> -->
+            <h1 class="mb-10 text-center text-2xl font-bold">Cart Items</h1>
+                <div class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+                <div class="rounded-lg md:w-2/3">
+                    <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
+                    <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="product-image" class="w-full rounded-lg sm:w-40" />
+                    <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+                        <div class="mt-5 sm:mt-0">
+                        <h2 class="text-lg font-bold text-gray-900">Nike Air Max 2019</h2>
+                        <p class="mt-1 text-xs text-gray-700">36EU - 4US</p>
+                        </div>
+                        <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+                        <div class="flex items-center border-gray-100">
+                            <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
+                            <input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="2" min="1" />
+                            <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <p class="text-sm">259.000 ₭</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                        <div class="flex items-center">
+                            <label for="checkbox" class="mr-2">Buy</label>
+                            <input type="checkbox" placeholder="Check">
+                        </div>
+                        </div>
                     </div>
-                    <h3 class="mt-4 text-sm text-gray-700"><?=$barang['nama_barang']?></h3>
-                    <p class="mt-1 text-lg font-medium text-gray-900"><?=$barang['harga_barang']?></p>
-                    <p class="mt-1 text-lg font-medium text-gray-900">Grade Barang <?=$barang['grade']?></p>
-                </a>
-                <?php
-                }
-                ?>
+                    </div>
+                    <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
+                    <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80" alt="product-image" class="w-full rounded-lg sm:w-40" />
+                    <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+                        <div class="mt-5 sm:mt-0">
+                        <h2 class="text-lg font-bold text-gray-900">Nike Air Max 2019</h2>
+                        <p class="mt-1 text-xs text-gray-700">36EU - 4US</p>
+                        </div>
+                        <div class="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+                        <div class="flex items-center border-gray-100">
+                            <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
+                            <input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="2" min="1" />
+                            <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <p class="text-sm">259.000 ₭</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                        <div class="flex items-center">
+                            <label for="checkbox" class="mr-2">Buy</label>
+                            <input type="checkbox" placeholder="Check">
+                        </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-            </div>
+                <!-- Sub total -->
+                <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+                    <div class="mb-2 flex justify-between">
+                    <p class="text-gray-700">Subtotal</p>
+                    <p class="text-gray-700">$129.99</p>
+                    </div>
+                    <div class="flex justify-between">
+                    <p class="text-gray-700">Shipping</p>
+                    <p class="text-gray-700">$4.99</p>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="flex justify-between">
+                    <p class="text-lg font-bold">Total</p>
+                    <div class="">
+                        <p class="mb-1 text-lg font-bold">$134.98 USD</p>
+                        <p class="text-sm text-gray-700">including VAT</p>
+                    </div>
+                    </div>
+                    <button class="mt-6 w-full rounded-md bg-gradient-to-r from-teal-700 to-teal-300 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
+                </div>
+                </div>
+
             <!-- Color Background -->
             <div class="absolute inset-x-0 top-[-10rem] -z-10  overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
                 <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-teal-100 to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
             </div>
-            <!-- Color Background -->
             <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
                 <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-teal-700 to-teal-300 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
             </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
 </body>
 </html>

@@ -81,9 +81,9 @@
                                 </li>
                                 <li>
                                 <form action="<?= url_to('logout') ?>">
-            <?= csrf_field() ?>
-            <button type="submit">Logout</button>
-        </form>
+                                    <?= csrf_field() ?>
+                                    <button type="submit">Logout</button>
+                                </form>
                                 </li>
                             </ul>
                             </div>
@@ -160,7 +160,7 @@
                         </span>
                     </button>
                     <div x-show="open" class="bg-gray-100">
-                        <a class="py-2 px-16 block text-sm text-black hover:bg-gradient-to-r from-teal-700 to-teal-300 hover:text-white" href="<?php echo base_url('customer/grade/A')?>">
+                        <a class="py-2 px-16 block text-sm text-black hover:bg-gradient-to-r from-teal-700 to-teal-300 hover:text-white" href="<?php echo base_url('customer/grade') ?>">
                             <span class="material-symbols-outlined">
                                 grade
                             </span>

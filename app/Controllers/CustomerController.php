@@ -67,20 +67,20 @@ class CustomerController extends BaseController
         return view('customer/home/dashboard', $data);
     }
 
-    public function shoes(){
+    public function category_barang($id){
         $customerModel = new CustomerModel();
-        $barang = $customerModel->getBarang();
+        $barang = $customerModel->getBarangByCategory($id);
         
         $data = [
             'barang' => $barang
         ];
-        return view('customer/home/shoes', $data);
+        return view('customer/home/category', $data);
     }
 
-    public function grade(){
+    public function grade($id){
         $customerModel = new CustomerModel();
-        $barang = $customerModel->getBarang();
-        
+        $barang = $customerModel->getBarang($id);
+
         $data = [
             'barang' => $barang
         ];
@@ -113,5 +113,9 @@ class CustomerController extends BaseController
         }
 
         return redirect()->to(base_url('/'));
+    }
+
+    public function cart(){
+        return view('customer/home/cart');
     }
 }
