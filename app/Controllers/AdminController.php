@@ -67,5 +67,9 @@ class AdminController extends BaseController
     public function payment_acc(){
         return view('admin/home/payment_acc');
     }
+
+    public function grade_admin(){
+        return view('admin/home/grade_admin');
+    }
   
 }
