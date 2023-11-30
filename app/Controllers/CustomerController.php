@@ -84,6 +84,7 @@ class CustomerController extends BaseController
         $data = [
             'barang' => $barang
         ];
+        dd($data);
         return view('customer/home/grade', $data);
     }
 

@@ -81,9 +81,9 @@
                                 </li>
                                 <li>
                                 <form action="<?= url_to('logout') ?>">
-            <?= csrf_field() ?>
-            <button type="submit">Logout</button>
-        </form>
+                                    <?= csrf_field() ?>
+                                    <button type="submit">Logout</button>
+                                </form>
                                 </li>
                             </ul>
                             </div>
@@ -174,7 +174,6 @@
                         </a>
                     </div>
                 </div>
-
                 </li>
                 <li class="min-w-max">
                     <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-black hover:bg-gradient-to-r from-teal-700 to-teal-300 hover:text-white">
