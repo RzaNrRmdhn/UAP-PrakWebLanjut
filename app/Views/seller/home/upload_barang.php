@@ -18,6 +18,7 @@
 
 <div class="min-w-screen min-h-screen bg-gradient-to-b from-teal-800 to-teal-400 flex items-center justify-center px-5 py-5">
     <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
+        <form action="<?= base_url('/seller/store') ?>" method="post" enctype="multipart/form-data">
         <div class="md:flex w-full">
             <div class="hidden md:block w-1/2 bg-grey-500 py-10 px-10">
                 <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Image Item</label>
@@ -29,16 +30,16 @@
                     <div class="mt-4 flex text-sm leading-6 text-gray-600">
                         <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                         <span>Upload a file</span>
-                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                        <input id="file-upload" name="foto" type="file" class="sr-only">
                         </label>
                         <p class="pl-1">or drag and drop</p>
                     </div>
                     <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                     </div>
                 </div>
-                <div class="hidden md:block bg-grey-500 py-10 px-10">
+                <!-- <div class="hidden md:block bg-grey-500 py-10 px-10">
                     <img src="<?= base_url('assets/register.png') ?>" alt="">
-                </div>
+                </div> -->
             </div>
             <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
                 <div class="text-center mb-10">
@@ -50,14 +51,14 @@
                             <label for="" class="text-xs font-semibold px-1">Nama Barang</label>
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                                <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-grey-500" placeholder="Biji Robot">
+                                <input name="nama" type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-grey-500" placeholder="Biji Robot">
                             </div>
                         </div>
                         <div class="w-1/2 px-3 mb-5">
                             <label for="" class="text-xs font-semibold px-1">Harga</label>
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                                <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-grey-500" placeholder="10000">
+                                <input name="harga" type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-grey-500" placeholder="10000">
                             </div>
                         </div>
                     </div>
@@ -66,7 +67,7 @@
                             <label for="" class="text-xs font-semibold px-1">Kategori</label>
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                                <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-grey-500" placeholder="Kategori">
+                                <input name="kategori" type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-grey-500" placeholder="Kategori">
                             </div>
                         </div>
                     </div>
@@ -78,14 +79,16 @@
                             </div>
                         </div>
                     </div>
+                    <input name="status" value="Waiting" type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-grey-500" placeholder="Kategori" hidden>
                     <div class="flex -mx-3">
                         <div class="w-full px-3 mb-5">
-                            <button class="block w-full max-w-xs mx-auto bg-gradient-to-r from-teal-800 to-teal-400 hover:bg-grey-700 focus:bg-grey-700 text-white rounded-lg px-3 py-3 font-semibold">Jual Barang</button>
+                            <button type="submit" class="block w-full max-w-xs mx-auto bg-gradient-to-r from-teal-800 to-teal-400 hover:bg-grey-700 focus:bg-grey-700 text-white rounded-lg px-3 py-3 font-semibold">Jual Barang</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </form>
     </div>
 </div>
 

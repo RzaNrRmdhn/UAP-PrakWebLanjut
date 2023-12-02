@@ -67,7 +67,13 @@ class AdminController extends BaseController
     }
 
     public function grade_admin(){
-        return view('admin/home/grade_admin');
+        $customerModel = new CustomerModel();
+        $barang = $customerModel->getBarangStatus();
+        
+        $data = [
+            'barang' => $barang
+        ];
+        return view('admin/home/grade_admin', $data);
     }
-  
+
 }
