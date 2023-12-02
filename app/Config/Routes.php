@@ -33,6 +33,7 @@ $routes->get('/customer/cart', [CustomerController::class, 'cart']);
 // $routes->get('/seller', 'Seller\Home::index'); 
 $routes->get('/seller/signup', [SellerController::class, 'registerPenjual']);
 $routes->get('/seller/upload_barang', [SellerController::class, 'upload_barang']);
+$routes->post('/seller/store', [SellerController::class, 'store']);
 
 // ? Admin
 // $routes->get('/admin/signin', 'Admin\Home::index');

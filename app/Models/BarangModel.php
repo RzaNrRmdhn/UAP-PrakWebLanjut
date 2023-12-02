@@ -12,7 +12,7 @@ class BarangModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_barang', 'harga_barang', 'id_kategori', 'image', 'deskripsi_barang', 'grade'];
+    protected $allowedFields    = ['nama_barang', 'harga_barang', 'id_kategori', 'image', 'deskripsi_barang', 'grade', 'status'];
 
     // Dates
     protected $useTimestamps = true;
@@ -40,6 +40,9 @@ class BarangModel extends Model
 
     public function getBarang($id = null){
         return $this->select('barang.*, kategori_barang.nama_kategori')->join('kategori_barang', 'kategori_barang.id=kategori_barang.id')->findAll();
+    }
 
+    public function saveBarang($data){
+        $this->insert($data);
     }
 }

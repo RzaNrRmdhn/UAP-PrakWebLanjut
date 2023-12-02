@@ -65,4 +65,11 @@ class CustomerModel extends Model
         }
         return $this->select('barang.*, kategori_barang.nama_kategori')->join('kategori_barang', 'kategori_barang.id=kategori_barang.id')->findAll();
     }
+
+    public function getBarangStatus($id = null){
+        // if($id != null){
+        return $this->db->table('barang')->where('status', 'Waiting')->get()->getResultArray();
+        // }
+        // return $this->select('barang.*, kategori_barang.nama_kategori')->join('kategori_barang', 'kategori_barang.id=barang.id_kategori')->findAll();
+    }
 }
