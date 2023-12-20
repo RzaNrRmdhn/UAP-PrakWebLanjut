@@ -114,4 +114,8 @@ class CustomerController extends BaseController
 
         return redirect()->to(base_url('/'));
     }
+
+    public function detail_produk(){
+        return view('customer/home/detail_produk');
+    }
 }

@@ -26,6 +26,8 @@ $routes->put('/customer/update_profile/(:any)', [CustomerController::class, 'upd
 $routes->get('/customer/category/shoes', [CustomerController::class, 'shoes']); 
 $routes->get('/customer/grade', [CustomerController::class, 'grade']); 
 
+$routes->get('/customer/detail_produk', [CustomerController::class, 'detail_produk']);
+
 // ? Seller
 // $routes->get('/seller', 'Seller\Home::index'); 
 $routes->get('/seller/signup', [SellerController::class, 'registerPenjual']);
@@ -39,4 +41,6 @@ $routes->get('/admin/list_customer', [AdminController::class, 'list_customer']);
 $routes->get('/admin/admin_profile', [AdminController::class, 'admin_profile']);
 $routes->get('/admin/create_admin', [AdminController::class, 'create_admin']);
 $routes->post('/admin/store', [AdminController::class, 'store']);
+
+
 
