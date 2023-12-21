@@ -10,7 +10,6 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 $routes->get('/', [CustomerController::class, 'landingpage']); // Donse
-// $routes->get('/landingpage', [CustomerController::class, 'landingpage']); // Done
 // $routes->get('/', [CustomerController::class, 'homescreen']);
 
 // ? Customer

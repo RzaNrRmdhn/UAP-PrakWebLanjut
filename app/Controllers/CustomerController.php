@@ -24,8 +24,7 @@ class CustomerController extends BaseController
 
     public function landingpage()
     {
-        $auth = service('authentication');
-        if ($auth->check()) {
+        if (logged_in()) {
             if (in_groups('penjual')) {
                 dd("ini halaman penjual");
             } else if (in_groups('customer')) {
