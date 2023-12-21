@@ -38,8 +38,11 @@ class BarangModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getBarang($id = null){
+    public function getBarang($id = null)
+    {
+        if ($id != null) {
+            return $this->select('barang.*, kategori_barang.nama_kategori')->join('kategori_barang', 'kategori_barang.id=barang.id')->find($id);
+        }
         return $this->select('barang.*, kategori_barang.nama_kategori')->join('kategori_barang', 'kategori_barang.id=kategori_barang.id')->findAll();
-
     }
 }
