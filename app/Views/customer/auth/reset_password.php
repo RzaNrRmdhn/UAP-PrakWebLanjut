@@ -17,18 +17,31 @@
             <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
 
                 <?= view('Myth\Auth\Views\_message_block') ?>
-                <form action="<?= url_to('forgot') ?>" method="post">
+
+                <form action="<?= url_to('reset-password') ?>" method="post">
                     <?= csrf_field() ?>
                     <div class="max-w-md mx-auto">
                         <div>
                             <h1 class="text-2xl font-semibold">Forgot Password</h1>
-                            <p><?= lang('Auth.enterEmailForInstructions') ?></p>
+                            <p><?= lang('Auth.enterCodeEmailPassword') ?></p>
                         </div>
                         <div class="divide-y divide-gray-200">
                             <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                 <div class="relative">
+                                    <input id="token" name="token" type="text" class="peer placeholder-transparent mb-5 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 form-control <?php if (session('errors.token')) : ?>is-invalid<?php endif ?>" placeholder="Email address" value="<?= old('token', $token ?? '') ?>" />
+                                    <label for="token" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Token</label>
+                                </div>
+                                <div class="relative">
                                     <input autocomplete="off" id="email" name="email" type="email" class="peer placeholder-transparent mb-5 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Email address" />
                                     <label for="email" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email Address</label>
+                                </div>
+                                <div class="relative">
+                                    <input autocomplete="off" id="password" name="password" type="password" class="peer placeholder-transparent mb-5 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password" />
+                                    <label for="password" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">New Password</label>
+                                </div>
+                                <div class="relative">
+                                    <input autocomplete="off" id="password" name="pass_confirm" type="password" class="peer placeholder-transparent mb-5 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" placeholder="Password" />
+                                    <label for="pass_confirm" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Confirm Password</label>
                                 </div>
                                 <div class="relative">
                                     <button type="submit" class="w-full mt-5 bg-gradient-to-r from-teal-700 to-teal-500 text-white rounded-md px-2 py-1">Submit</button>

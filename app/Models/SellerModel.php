@@ -9,8 +9,6 @@ class SellerModel extends Model
 
     protected $table            = 'akun';
 
-    protected $table            = 'kategori_barang';
-
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -18,9 +16,6 @@ class SellerModel extends Model
     protected $protectFields    = true;
 
     protected $allowedFields    = ['email', 'username', 'password', 'roles'];
-
-    protected $allowedFields    = ['nama_kategori'];
-
 
     // Dates
     protected $useTimestamps = true;
@@ -47,11 +42,8 @@ class SellerModel extends Model
     protected $afterDelete    = [];
 
 
-    public function getseller(){
+    public function getseller()
+    {
         return $this->findAll();
-
-    public function saveBarang($data){
-        $this->insert($data);
-
     }
 }

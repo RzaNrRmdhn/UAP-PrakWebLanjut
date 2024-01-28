@@ -9,28 +9,37 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->get('/', [CustomerController::class, 'landingpage']);
+$routes->get('/', [CustomerController::class, 'landingpage']); // Donse
 // $routes->get('/', [CustomerController::class, 'homescreen']);
 
 // ? Customer
 // $routes->get('/', 'Home::index');
-$routes->get('/customer/signin', [CustomerController::class, 'sign_in']);
-$routes->get('/customer/signup', [CustomerController::class, 'registerPembeli']);
-$routes->get('/customer/forgotpass', [CustomerController::class, 'forgot_password']);
-$routes->get('/customer/profile', [CustomerController::class, 'profilePembeli']);
+$routes->get('/customer/signin', [CustomerController::class, 'sign_in']); // done -> Just Need Some Auth Filters
+$routes->get('/customer/signup', [CustomerController::class, 'registerPembeli']); // done
+$routes->get('/customer/forgotpass', [CustomerController::class, 'forgot_password']); // done 
+$routes->get('/customer/profile', [CustomerController::class, 'profilePembeli']);   // Need Connect To Database
 
-$routes->get('/customer/home', [CustomerController::class, 'homescreen']);
+$routes->get('/customer/home', [CustomerController::class, 'homescreen']); // Done
 $routes->get('/customer/update_profile/(:any)', [CustomerController::class, 'updateProfile']);
 $routes->put('/customer/update_profile/(:any)', [CustomerController::class, 'update']);
 
-$routes->get('/customer/category/shoes', [CustomerController::class, 'shoes']); 
-$routes->get('/customer/grade', [CustomerController::class, 'grade']); 
+$routes->get('/customer/(:any)/edit', [CustomerController::class, 'edit']);
+$routes->post('/update/(:any)', [CustomerController::class, 'updatePesanan']);
+$routes->get('/customer/category/(:any)', [CustomerController::class, 'category_barang']);
+$routes->get('/customer/grade/(:any)', [CustomerController::class, 'grade']);
+$routes->post('/customer/buy', [CustomerController::class, 'beli_barang']);
+$routes->get('/customer/details/product/(:any)', [CustomerController::class, 'detail_product']);
 
-// ? Seller
+$routes->get('/customer/cart', [CustomerController::class, 'cart']);
+$routes->get('/customer/transaksi', [CustomerController::class, 'transaksi']);
+
+// ? Seller Need to Connect To Database
 // $routes->get('/seller', 'Seller\Home::index'); 
-$routes->get('/seller/signup', [SellerController::class, 'registerPenjual']);
+$routes->get('/seller/register', [SellerController::class, 'registerPenjual']);
+$routes->get('/seller/upload_barang', [SellerController::class, 'upload_barang']);
+$routes->post('/seller/store', [SellerController::class, 'store']);
 
-// ? Admin
+// ? Admin Need Connect To Database
 // $routes->get('/admin/signin', 'Admin\Home::index');
 $routes->get('/admin/dashboard', [AdminController::class, 'dashboard']);
 $routes->get('/admin/list_admin', [AdminController::class, 'list_admin']);
@@ -39,4 +48,6 @@ $routes->get('/admin/list_customer', [AdminController::class, 'list_customer']);
 $routes->get('/admin/admin_profile', [AdminController::class, 'admin_profile']);
 $routes->get('/admin/create_admin', [AdminController::class, 'create_admin']);
 $routes->post('/admin/store', [AdminController::class, 'store']);
-
+$routes->get('/admin/payment_acc', [AdminController::class, 'payment_acc']);
+$routes->post('/status/update/(:any)', [AdminController::class, 'update']);
+$routes->get('/admin/grade_admin', [AdminController::class, 'grade_admin']);
