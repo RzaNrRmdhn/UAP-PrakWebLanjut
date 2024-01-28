@@ -12,7 +12,7 @@ class UsersModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['email', 'username'];
+    protected $allowedFields    = ['email', 'username', 'Bank'];
 
     // Dates
     protected $useTimestamps = false;
@@ -46,5 +46,10 @@ class UsersModel extends Model
     public function updateUser($data, $id)
     {
         return $this->update($id, $data);
+    }
+
+    public function getUserSeller()
+    {
+        return $this->findAll();
     }
 }
